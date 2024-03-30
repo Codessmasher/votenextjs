@@ -34,7 +34,7 @@ const Signin = () => {
                 localStorage.setItem('token', data.token);
                 
                 toast.success(data.message);
-                router.push('/auth');
+                return router.push('/dashboard');
             } else {
                 toast.error(data.error); 
             }
