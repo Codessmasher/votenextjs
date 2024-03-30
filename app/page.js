@@ -10,7 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    setisVoted(localStorage.getItem('isVoted'));
+    setisVoted(localStorage.getItem('profile.isVoted'));
     if (token) {
       setLogin(true); // Update login state if token exists
     }
@@ -27,18 +27,16 @@ export default function Home() {
   return (
     <div className="grid m-5 justify-items-center">
       <Image src={"/favicon.ico"} width={300} height={400} alt='vote'></Image>
+        <div>
+          <h1 className="text-center text-yellow-500 btn p-2 w-12/12 text-xl m-1">Welcome to voting portal</h1> 
+        </div> 
       <h1 className="text-green-500 btn p-5 text-center text-2xl">Add Your Valuable Vote</h1>
       {!login && (
         <div>
           <Link href="/signup" className="text-center bg-yellow-500 btn p-5 w-8/12 text-xl">Register</Link>
           <Link href="/signin" className="text-center bg-blue-500 btn p-5 w-8/12 text-xl m-1">Signin</Link>
         </div>
-      )}
-      {login && (
-        <div>
-          <h1 className="text-center bg-blue-500 btn p-5 w-12/12 text-xl m-1">Welcome to voting portal</h1> {/* Display token */}
-        </div>
-      )}
+      )} 
       {isVoted && (
         <div>
           <h1 className="text-center text-green-500 btn text-xl m-3">Thanks For Voting</h1> 
