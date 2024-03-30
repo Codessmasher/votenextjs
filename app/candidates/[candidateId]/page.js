@@ -1,6 +1,6 @@
 "use client"
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react"; 
+import URL from "../../utils/URL/page";
 import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -39,7 +39,7 @@ export default function Candidate({ params }) {
             )
             const data = await res.json();
             if(res.ok) {
-                localStorage.setItem("isVoted",true);
+                localStorage.setItem("profile.isVoted",true);
                 toast.success("Voted Successfully"); 
             }
             else toast.error(data.error);
@@ -53,6 +53,8 @@ export default function Candidate({ params }) {
     return (
         <>
             <div className="grid place-items-center align-items-center m-5">
+            <URL href="/">Go to Homepage</URL>
+
                 <h1>Following is the details of the Candidate</h1>
                 <div className="m-5">
                     <h2>

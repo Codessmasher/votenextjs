@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
+import URL from "../utils/URL/page";
 export default function Candidates() {
   const [candidates, setCandidates] = useState([]);
 
@@ -22,12 +22,13 @@ export default function Candidates() {
 
   return (
     <div className="grid place-items-center align-items-center m-5">
+        <URL href="/">Go to Homepage</URL>
       <h1 className="text-xl text-green-500">Following are the list of candidates</h1>
       {candidates && candidates.map((cand, key) => {
         return (
           <div className="m-5" key={key}>
             <h2>{key + 1})  <span className="text-yellow-500">{cand.name}</span> is from <span className="text-red-500">{cand.party}     :</span>
-            <Link href={`/candidates/${cand._id}`} className="bg-orange-500 m-1 p-1 w-3/12 text-s">VIEW</Link>
+            <URL href={`/candidates/${cand._id}`} color={"orange"} width={"60px"}>VIEW</URL>
             </h2>
           </div>
         )

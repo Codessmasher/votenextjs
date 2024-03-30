@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 // import axios from 'axios';
+import URL from '../utils/URL/page';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -32,11 +33,11 @@ const Signin = () => {
                 const data = await res.json();
                 console.log(data);
                 localStorage.setItem('token', data.token);
-                
+
                 toast.success(data.message);
                 return router.push('/dashboard');
-            } else {
-                toast.error(data.error); 
+            } else { 
+                toast.error("No account Found");
             }
         } catch (error) {
             // console.error(error);
@@ -51,18 +52,24 @@ const Signin = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8 p-6 bg-white rounded shadow-md">
-            <label className="block mb-4">
-                <span className="text-gray-700">Aadhaar Number:</span>
-                <input type="number" name="adhaarNumber" value={formData.adhaarNumber} onChange={handleChange} required className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
-            </label>
-            <label className="block mb-4">
-                <span className="text-gray-700">Password:</span>
-                <input type="password" name="password" value={formData.password} onChange={handleChange} required className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
-            </label>
-            <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Submit</button>
-            <ToastContainer />
-        </form>
+
+        <>
+            <div className="grid place-items-center align-items-center m-5">
+                <URL href="/">Go to Homepage</URL>
+            </div>
+            <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8 p-6 bg-white rounded shadow-md">
+                <label className="block mb-4">
+                    <span className="text-gray-700">Aadhaar Number:</span>
+                    <input type="number" name="adhaarNumber" value={formData.adhaarNumber} onChange={handleChange} required className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
+                </label>
+                <label className="block mb-4">
+                    <span className="text-gray-700">Password:</span>
+                    <input type="password" name="password" value={formData.password} onChange={handleChange} required className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
+                </label>
+                <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Submit</button>
+                <ToastContainer />
+            </form>
+        </>
     );
 };
 
