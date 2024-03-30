@@ -32,8 +32,9 @@ const Signin = () => {
                 const data = await res.json();
                 console.log(data);
                 localStorage.setItem('token', data.token);
+                
                 toast.success(data.message);
-                router.push('/candidates');
+                router.push('/auth');
             } else {
                 toast.error(data.error); 
             }
