@@ -6,7 +6,7 @@ import URL from '../utils/URL/page';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Auth = () => {
+const dashboard = () => {
     const [token, setToken] = useState('');
     const [userData, setUserData] = useState(null);
     const [role, setRole] = useState("voter");
@@ -139,7 +139,6 @@ const Auth = () => {
                                 <input type="text" name="party" value={formData.party} onChange={handleChange} required className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
                             </label>
                             <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Submit</button>
-                            <ToastContainer />
                         </form>
 
                         <form onSubmit={handleDelete} className="max-w-md mx-auto mb-2 mt-8 p-6 bg-white rounded shadow-md">
@@ -151,9 +150,10 @@ const Auth = () => {
                         </form>
                     </div>
                 }
+                <ToastContainer />
             </div>
         </CardCenter>
     );
 };
 
-export default Auth;
+export default dashboard;
