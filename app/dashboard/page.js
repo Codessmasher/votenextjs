@@ -117,7 +117,7 @@ const dashboard = () => {
                         <span style={{ color: "orange", fontSize: "4rem", textTransform: "capitalize" }}>{userData.name}</span>
                     </div>}
             <div className='flex justify-between w-10/12'>
-            <URL href="/">Go to Homepage</URL>
+            <URL href={"/"}>Go to Homepage</URL>
 
                 {userData && role === "voter" &&
                     <h1 style={{ color: "red", fontSize: "2rem" }}>You have {userData.isVoted ? <span style={{ color: "green" }}>voted</span> : "not voted"}</h1>}

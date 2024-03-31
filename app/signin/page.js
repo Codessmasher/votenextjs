@@ -55,7 +55,7 @@ const Signin = () => {
 
         <>
             <div className="grid place-items-center align-items-center m-5">
-                <URL href="/">Go to Homepage</URL>
+                <URL href={"/"}>Go to Homepage</URL>
             </div>
             <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8 p-6 bg-white rounded shadow-md">
                 <label className="block mb-4">

@@ -53,7 +53,7 @@ export default function Candidate({ params }) {
     return (
         <>
             <div className="grid place-items-center align-items-center m-5">
-            <URL href="/">Go to Homepage</URL>
+            <URL href={"/"}>Go to Homepage</URL>
 
                 <h1>Following is the details of the Candidate</h1>
                 <div className="m-5">

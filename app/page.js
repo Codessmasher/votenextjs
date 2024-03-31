@@ -50,8 +50,8 @@ export default function Home() {
       {!isVoted && <h1 className="text-green-500 btn p-5 text-center text-2xl">Add Your Valuable Vote checking from the candidate list</h1>}
       {!login && (
         <div>
-          <URL width={"200px"} href="/signup" color={"orange"}>Register</URL>
-          <URL width={"200px"} href="/signin" color={"red"}>Signin</URL>
+          <URL width={"200px"} href={"/signup"} color={"orange"}>Register</URL>
+          <URL width={"200px"} href={"/signin"} color={"red"}>Signin</URL>
         </div>
       )}
       {isVoted && (
@@ -61,9 +61,9 @@ export default function Home() {
         </>
       )}
 
-      {!isVoted && <URL width={"200px"} href="/candidates" color={"green"}>Candidate List</URL>}
+      {!isVoted && <URL width={"200px"} href={"/candidates"} color={"green"}>Candidate List</URL>}
       {login && <Button onClick={handleLogout} color={"red"} width={"8rem"}>LOGOUT</Button>}
-      {login && <URL href="/dashboard" color={"yellow"}>Go to Dashboard</URL>
+      {login && <URL href={"/dashboard"} color={"yellow"}>Go to Dashboard</URL>
 }
     </div>
   );

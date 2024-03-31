@@ -1,10 +1,8 @@
-import CardCenter from "./utils/CardCenter/page";
-import Image from "next/image";
+import CardCenter from "./utils/CardCenter/page"; 
 export default function Loading() {
     return (
         <CardCenter>
-            <h1 className="text-xl">Loading...</h1>
-            {/* <Image src="/loader.gif" alt="loading" width={200} height={200} /> */}
+            <h1 className="text-xl">Loading...</h1> 
         </CardCenter>
     );
 }
