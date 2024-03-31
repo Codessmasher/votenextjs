@@ -144,7 +144,7 @@ const dashboard = () => {
                         <form onSubmit={handleDelete} className="max-w-md mx-auto mb-2 mt-8 p-6 bg-white rounded shadow-md">
                             <label className="block mb-4">
                                 <h1 className='text-red-500 text-center m-3'>Delete A Candidate</h1>
-                                <input type="text" name="party" value={candidateId} onChange={(e) => setCandidateId(e.target.value)} placeholder='candidate id' required className="form-input p-0.2 bg-gray-500 mt-1 block w-full" />
+                                <input type="text" name="candidateId" value={candidateId} onChange={setCandidateId(e.target.value)} placeholder='candidate id' required className="form-input p-0.2 bg-gray-500 mt-1 block w-full" />
                             </label>
                             <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Submit</button>
                         </form>
