@@ -11,7 +11,7 @@ const dashboard = () => {
     const [userData, setUserData] = useState(null);
     const [userId, setUserId] = useState();
     const [role, setRole] = useState("voter");
-    const [formData, setFormData] = useState({ 
+    const [formData, setFormData] = useState({
     });
     const [candidateId, setCandidateId] = useState('');
     const router = useRouter();
@@ -131,8 +131,8 @@ const dashboard = () => {
             toast.error(error.message || 'Error updating candidate');
         }
     };
-    
-    
+
+
     const handleDelete = async (e) => {
         e.preventDefault();
         try {
@@ -158,49 +158,52 @@ const dashboard = () => {
 
     return (
         <CardCenter className='flex justify-between'>
-                {userData &&
-                    <div>
-                        <span style={{ fontSize: "4rem" }}>👋</span>
-                        <span style={{ color: "orange", fontSize: "4rem", textTransform: "capitalize" }}>{userData.name}</span>
-                    </div>}
+            {userData &&
+                <div>
+                    <span style={{ fontSize: "4rem" }}>👋</span>
+                    <span className='sm:text-[4rem] text-[2rem]' style={{ color: "orange", textTransform: "capitalize" }}>{userData.name}</span>
+                </div>}
             <div className='grid m:grid-rows-2 align-center '>
-            <URL href={"/"}>Go to Homepage</URL>
+                <URL href={"/"}>Go to Homepage</URL>
 
                 {userData && role === "voter" &&
-                    <h1 className='text-center' style={{ color: "red", fontSize: "2rem" }}>You have {userData.isVoted ? <span style={{ color: "green" }}>voted</span> : "not voted"}</h1>}
-                    
+                    <h1 className='text-center' style={{ color: "red", fontSize: "2rem" }}>You have {userData.isVoted ?
+                        <span style={{ color: "green" }}>voted</span> : "not voted"}</h1>
+                    &&
+
                     <form onSubmit={handleUserUpdate} className="max-w-md mx-auto mb-2 mt-8 p-6 bg-white rounded shadow-md">
-                            <h1 className='text-red-500 text-center'>Update Your Profile</h1>
-                            <label className="block mb-4">
-                                <span className="text-gray-700">Name:</span>
-                                <input type="text" name="name" value={formData.name} onChange={handleChange} className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
-                            </label>
-                            <label className="block mb-4">
-                                <span className="text-gray-700">Age:</span>
-                                <input type="number" name="age" value={formData.age} onChange={handleChange} className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
-                            </label>
-                            <label className="block mb-4">
-                                <span className="text-gray-700">Mobile:</span>
-                                <input type="text" name="mobile" value={formData.mobile} onChange={handleChange} className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
-                            </label>
-                            <label className="block mb-4">
-                                <span className="text-gray-700">Address</span>
-                                <input type="text" name="address" value={formData.address} onChange={handleChange} className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
-                            </label>
-                            <label className="block mb-4">
-                                <span className="text-gray-700">Adhaar Number</span>
-                                <input type="number" name="adhaarNumber" value={formData.adhaarNumber} onChange={handleChange} className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
-                            </label>
-                            <label className="block mb-4">
-                                <span className="text-gray-700">Password</span>
-                                <input type="string" name="password" value={formData.password} onChange={handleChange} className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
-                            </label>
-                            <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Submit</button>
-                        </form>
+                        <h1 className='text-red-500 text-center'>Update Your Profile</h1>
+                        <label className="block mb-4">
+                            <span className="text-gray-700">Name:</span>
+                            <input type="text" name="name" value={formData.name} onChange={handleChange} className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
+                        </label>
+                        <label className="block mb-4">
+                            <span className="text-gray-700">Age:</span>
+                            <input type="number" name="age" value={formData.age} onChange={handleChange} className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
+                        </label>
+                        <label className="block mb-4">
+                            <span className="text-gray-700">Mobile:</span>
+                            <input type="text" name="mobile" value={formData.mobile} onChange={handleChange} className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
+                        </label>
+                        <label className="block mb-4">
+                            <span className="text-gray-700">Address</span>
+                            <input type="text" name="address" value={formData.address} onChange={handleChange} className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
+                        </label>
+                        <label className="block mb-4">
+                            <span className="text-gray-700">Adhaar Number</span>
+                            <input type="number" name="adhaarNumber" value={formData.adhaarNumber} onChange={handleChange} className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
+                        </label>
+                        <label className="block mb-4">
+                            <span className="text-gray-700">Password</span>
+                            <input type="string" name="password" value={formData.password} onChange={handleChange} className="form-input p-0.2 bg-green-500 mt-1 block w-full" />
+                        </label>
+                        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Submit</button>
+                    </form>
+                }
                 {
                     userData && role === "admin" &&
                     <div>
-{/* add a new candidate info */}
+                        {/* add a new candidate info */}
 
                         <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8 p-6 bg-white rounded shadow-md">
                             <h1 className='text-red-500 text-center m-3'>Add a New Candidate</h1>
@@ -218,7 +221,7 @@ const dashboard = () => {
                             </label>
                             <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Submit</button>
                         </form>
-{/* update candidate info */}
+                        {/* update candidate info */}
                         <form onSubmit={handleUpdate} className="max-w-md mx-auto mb-2 mt-8 p-6 bg-white rounded shadow-md">
                             <label className="block mb-4">
                                 <h1 className='text-red-500 text-center m-3'>Update A Candidate</h1>
@@ -238,12 +241,12 @@ const dashboard = () => {
                             </label>
                             <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Submit</button>
                         </form>
-{/* delete a candidate info */}
+                        {/* delete a candidate info */}
 
                         <form onSubmit={handleDelete} className="max-w-md mx-auto mb-2 mt-8 p-6 bg-white rounded shadow-md">
                             <label className="block mb-4">
                                 <h1 className='text-red-500 text-center m-3'>Delete A Candidate</h1>
-                                <input type="text" name="candidateId" value={candidateId} onChange={(e)=>setCandidateId(e.target.value)} placeholder='candidate id' required className="form-input p-0.2 bg-gray-500 mt-1 block w-full" />
+                                <input type="text" name="candidateId" value={candidateId} onChange={(e) => setCandidateId(e.target.value)} placeholder='candidate id' required className="form-input p-0.2 bg-gray-500 mt-1 block w-full" />
                             </label>
                             <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Submit</button>
                         </form>
